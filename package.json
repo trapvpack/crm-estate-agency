@@ -13,6 +13,7 @@
     "dependencies": {
         "@inertiajs/vue3": "^1.0.15",
         "@vitejs/plugin-vue": "^5.0.4",
+        "normalize.css": "^8.0.1",
         "sass": "^1.74.1",
         "vue": "^3.4.21"
     }

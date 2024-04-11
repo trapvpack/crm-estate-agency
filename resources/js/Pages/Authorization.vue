@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {Link} from "@inertiajs/vue3";
 
 </script>
 
@@ -16,6 +17,7 @@
         <input type="password" class="auth-main__password-input">
     </div>
     <button class="auth-main__btn">Авторизоваться</button>
+    <Link :href="'/home'">Home</Link>
 </div>
 
 </template>
