@@ -23,27 +23,7 @@ import {Link} from "@inertiajs/vue3";
 </template>
 
 <style scoped lang="scss">
-@mixin font-stack {
-    font-family: Cantarell, serif;
-    font-weight: bolder;
-    font-size: large;
-}
-
-@mixin centering-block-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-@mixin input-stack {
-    border-style: hidden;
-    height: 30px;
-    width: 100%;
-    @include font-stack;
-    background: #a0aec0;
-    border-bottom: 3px solid #1a202c;
-}
+@import "/resources/scss/mixins.scss";
 
 .auth-main {
     position: fixed;
