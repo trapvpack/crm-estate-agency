@@ -6,17 +6,16 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 
-
-
 class IndexController extends Controller
 {
-    public function authorization()
+    public function authorization(): \Inertia\Response
     {
         return Inertia::render('Authorization', [
-           'title' => 'Authorization'
+            'title' => 'Authorization'
         ]);
     }
-    public function home()
+
+    public function home(): \Inertia\Response
     {
         return Inertia::render('Home', [
             'title' => 'Home'
