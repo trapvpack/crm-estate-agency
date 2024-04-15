@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import Column from "../Blocks/Column.vue";
 import LeftBar from "../Blocks/LeftBar.vue";
-import NavBar from "../Blocks/NavBar.vue";
+import NavBar from '../Blocks/NavBar.vue';
 import Board from "../Blocks/Board.vue";
 </script>
 

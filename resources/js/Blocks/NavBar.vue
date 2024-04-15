@@ -19,7 +19,6 @@
     margin: 15px 15px 15px 15px;
     height: 6vh;
     background-color: #cbd5e0;
-    width: 98%;
     min-width: 865px;
     border-radius: 20px;
     @include centering-block-row;

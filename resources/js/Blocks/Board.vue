@@ -13,12 +13,14 @@ import Column from "./Column.vue";
             </nav>
             <div class="board__columns">
                 <Column></Column>
+                <Column></Column>
+                <Column></Column>
+                <Column></Column>
             </div>
         </div>
         <div class="board__closed-tasks">
             <button class="board__show-button">Показать завершённые</button>
         </div>
-
     </div>
 </template>
 
@@ -80,14 +82,29 @@ import Column from "./Column.vue";
         width: 4%;
         height: 62%;
         border: none;
+        @include font-stack;
+        text-align: center;
     }
 
     &__columns {
+
+        overflow-x: scroll;
         border-radius: 20px;
         width: 100%;
-        height: ((812.59px - 66.91px) / 812.59px) * 100%;
+        height: ((812.59px - 76.91px) / 812.59px) * 100%;
         background: #1a202c;
         @include centering-block-row;
+        justify-content: normal;
+    }
+
+    &__columns::-webkit-scrollbar {
+        border-radius: 20px;
+        background-color: #1a202c;
+    }
+
+    &__columns::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: #718096;
     }
 
     &__closed-tasks {
@@ -98,13 +115,7 @@ import Column from "./Column.vue";
     }
 
     &__show-button {
-        margin-bottom: 20px;
-        background-color: #a0aec0;
-        border-radius: 14px;
-        border: none;
-        height: 10%;
-        width: 85%;
-        @include font-stack;
+        @include button;
     }
 
     &__search::-webkit-search-cancel-button {
