@@ -2,6 +2,9 @@
 import LeftBar from "../Blocks/LeftBar.vue";
 import NavBar from '../Blocks/NavBar.vue';
 import Board from "../Blocks/Board.vue";
+import Overlay from "../Layouts/ModalWindow.vue";
+import {ref} from "vue";
+
 </script>
 
 <template>
@@ -11,7 +14,6 @@ import Board from "../Blocks/Board.vue";
         <div class="home__line"></div>
         <Board></Board>
     </div>
-
 </template>
 
 <style scoped lang="scss">
@@ -28,6 +30,7 @@ import Board from "../Blocks/Board.vue";
         width: 1%;
         min-width: 15px;
     }
-
 }
+
+
 </style>

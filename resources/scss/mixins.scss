@@ -38,7 +38,6 @@
 
 @mixin btn-hover-style {
     border: 1px solid white;
-    background-color: #718096;
     cursor: pointer;
 }
 
@@ -46,6 +45,7 @@
     margin-top: 5px;
     width: 95%;
     height: 10vh;
+    min-height: 10vh;
     border-radius: 20px;
     @include centering-block-column;
     @include font-stack;

@@ -15,7 +15,6 @@ import Column from "./Column.vue";
                 <Column></Column>
                 <Column></Column>
                 <Column></Column>
-                <Column></Column>
             </div>
         </div>
         <div class="board__closed-tasks">
@@ -87,9 +86,9 @@ import Column from "./Column.vue";
     }
 
     &__columns {
-
-        overflow-x: scroll;
-        border-radius: 20px;
+        border-right: 2px solid #718096;
+        border-bottom-left-radius: 20px;
+        overflow-x: auto;
         width: 100%;
         height: ((812.59px - 76.91px) / 812.59px) * 100%;
         background: #1a202c;
@@ -138,6 +137,5 @@ import Column from "./Column.vue";
         @include btn-hover-style;
     }
 }
-
 
 </style>
