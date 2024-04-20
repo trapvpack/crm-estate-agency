@@ -18,25 +18,24 @@
 .navbar {
     margin: 15px 15px 15px 15px;
     height: 6vh;
-    background-color: #cbd5e0;
+    @include background-color;
     min-width: 865px;
-    border-radius: 20px;
     @include centering-block-row;
+    border: 3px solid #34343a;
+    border-radius: 10px;
 
     &__button {
         margin: 0 5px 0 0;
-        height: 5vh;
-        border: none;
-        border-radius: 13px;
-        background-color: #1a202c;
+        height: 100%;
+        @include background-color;
         color: #cbd5e0;
+        border: none;
         @include font-stack;
     }
 
     &__button:hover {
         cursor: pointer;
-        border: 2px solid #cbd5e0;
-        background-color: #1a253c;
+        background-color: #34343a;
     }
 }
 </style>

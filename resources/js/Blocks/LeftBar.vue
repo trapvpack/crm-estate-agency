@@ -1,30 +1,26 @@
 <script setup lang="ts">
 import LeftBarElement from ".//LeftBarElement.vue";
-import Overlay from "../Layouts/ModalWindow.vue";
 import {ref} from "vue";
 import ModalWindow from "../Layouts/ModalWindow.vue";
 
 let overlayVisibility = ref<boolean>(false);
 
-const buttonIsClicked = (visibility: boolean) => {
-    overlayVisibility.value = visibility;
-}
 
 </script>
 
 
 <template>
-    <ModalWindow v-if="overlayVisibility" @closeButtonIsClicked="buttonIsClicked(false)">
-        <span class="new-element-name">Название доски</span>
-        <input type="text" class="new-element-name-area">
+    <ModalWindow class="new-board" v-if="overlayVisibility" @closeButtonIsClicked="overlayVisibility = false">
+        <span class="new-board__name">Название доски</span>
+        <input type="text" class="new-board__name-area">
     </ModalWindow>
     <div class="left-bar">
         <input type="search" class="left-bar__search">
         <ul class="left-bar__bar-elements">
             <LeftBarElement></LeftBarElement>
             <LeftBarElement></LeftBarElement>
-            <li class="left-bar__bar-element-new" @click="buttonIsClicked(true)">Добавить доску</li>
         </ul>
+        <div class="left-bar__bar-element-new" @click="overlayVisibility = true ">Добавить доску</div>
     </div>
 </template>
 
@@ -33,11 +29,12 @@ const buttonIsClicked = (visibility: boolean) => {
 
 .left-bar {
     margin: 0;
-    background: #a0aec0;
+    @include background-color;
     height: 88vh;
     width: 20%;
     min-width: 250px;
-    border-radius: 20px;
+    border: 3px solid #34343a;
+    border-radius: 10px;
     @include centering-block-column;
 
     &__search {
@@ -45,29 +42,32 @@ const buttonIsClicked = (visibility: boolean) => {
         display: block;
         border-style: hidden;
         height: 40px;
-        width: 85%;
+        width: 90%;
+        @include background-color;
+        background: #101012;
+        border-bottom: 1px solid #ffffff;
         @include font-stack;
-        background: #a0aec0;
-        border-bottom: 2px solid #1a202c;
+        color: white;
     }
 
     &__bar-elements {
-        margin: 0;
+        margin: 50px 0 0 0;
         padding: 0;
-        background: #a0aec0;
+        @include background-color;
         height: 95%;
-        width: 90%;
-        border-radius: 20px;
+        width: 100%;
         @include centering-block-column;
         justify-content: normal;
         overflow-y: auto;
-    }
 
+    }
 
     &__bar-element-new {
         @include bar-element;
-        background-color: #2d3748;
+        background-color: #232329;
         color: #cbd5e0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 
     &__search:focus {
@@ -80,7 +80,7 @@ const buttonIsClicked = (visibility: boolean) => {
 
     &__bar-element-new:hover {
         cursor: pointer;
-        border: 2px solid #cbd5e0;
+        background-color: #34343a;
     }
 
     &__search::-webkit-search-cancel-button {
@@ -98,23 +98,25 @@ const buttonIsClicked = (visibility: boolean) => {
     }
 }
 
-.new-element-name {
-    @include font-stack;
-}
+.new-board {
+    &__name {
+        @include font-stack;
+    }
 
-.new-element-name-area {
-    @include input-stack;
-    background-color: #718096;
-    width: 80%;
-    margin-top: 20px;
-}
+    &__name-area {
+        @include input-stack;
+        background-color: #718096;
+        width: 80%;
+        margin-top: 20px;
+    }
 
-.new-element-name-area:focus {
-    outline: none;
-}
+    &__name-area:focus {
+        outline: none;
+    }
 
-.new-element-name-area:focus:hover {
-    outline: none;
-}
+    &__name-area:focus:hover {
+        outline: none;
+    }
 
+}
 </style>

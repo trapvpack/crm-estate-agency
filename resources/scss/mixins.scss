@@ -1,7 +1,10 @@
 @mixin font-stack {
-    font-family: Cantarell, serif;
-    font-weight: bolder;
-    font-size: large;
+    font-family: "Unbounded", sans-serif;
+    font-size: medium;
+}
+
+@mixin background-color {
+    background: #101012;
 }
 
 @mixin centering-block-column {
@@ -42,11 +45,8 @@
 }
 
 @mixin bar-element {
-    margin-top: 5px;
-    width: 95%;
-    height: 10vh;
-    min-height: 10vh;
-    border-radius: 20px;
+    width: 100%;
+    min-height: 8vh;
     @include centering-block-column;
     @include font-stack;
 }
@@ -59,4 +59,13 @@
     height: 10%;
     width: 85%;
     @include font-stack;
+}
+
+@mixin selector {
+    width: 30%;
+    height: 40px;
+    background: #1a202c;
+    border-radius: 10px;
+    @include font-stack;
+    color: #a0aec0;
 }

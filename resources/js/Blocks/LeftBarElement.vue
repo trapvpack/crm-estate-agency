@@ -11,14 +11,13 @@
 
 .bar-element {
     @include bar-element;
-    background-color: #1a202c;
+    @include background-color;
     color: #cbd5e0;
 }
 
 .bar-element:hover {
     cursor: pointer;
-    border: 1px solid #cbd5e0;
-    background-color: #1a253c;
+    background-color: #34343a;
 }
 
 </style>

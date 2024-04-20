@@ -1,15 +1,29 @@
-<script setup>
-
+<script setup lang="ts">
 import Column from "./Column.vue";
+import ModalWindow from "../Layouts/ModalWindow.vue";
+import {ref} from "vue";
+
+let overlayVisibility = ref<boolean>(false);
+
 </script>
 
 <template>
+    <ModalWindow class="new-column" v-if="overlayVisibility" @closeButtonIsClicked="overlayVisibility = false">
+        <span class="new-column__name">Название колонки</span>
+        <input type="text" class="new-column__name-area">
+        <select class="new-column__color">
+            <option disabled value="">Выберите цвет</option>
+            <option value="red">Красный</option>
+            <option value="blue">Синий</option>
+            <option value="green">Зелёный</option>
+        </select>
+    </ModalWindow>
     <div class="board">
         <div class="board__collection">
             <nav class="board__navbar">
                 <span class="board__name">Доска1</span>
                 <input class="board__search" type="search">
-                <button class="board__add-button">+</button>
+                <button class="board__add-button" @click="overlayVisibility = true">+</button>
             </nav>
             <div class="board__columns">
                 <Column></Column>
@@ -29,25 +43,25 @@ import Column from "./Column.vue";
 
 .board {
     margin: 0;
-    background: #1a202c;
+    @include background-color;
     height: 85vh;
     width: 80%;
-    border-radius: 20px;
     min-width: 600px;
+    border: 3px solid #34343a;
+    border-radius: 10px;
     @include centering-block-row;
     justify-content: left;
 
     &__collection {
-        background: #1a202c;
+        border-radius: 10px;
+        @include background-color;
         height: 85vh;
         width: 80%;
-        border-radius: 20px;
     }
 
     &__navbar {
         width: 100%;
         height: 7vh;
-        border-radius: 20px;
         @include centering-block-row;
     }
 
@@ -55,7 +69,6 @@ import Column from "./Column.vue";
         @include font-stack;
         font-size: xx-large;
         color: #a0aec0;
-        border-radius: 10px;
         min-width: 150px;
         width: 15%;
         text-align: center;
@@ -67,15 +80,15 @@ import Column from "./Column.vue";
         height: 40%;
         width: 90%;
         @include font-stack;
+        @include background-color;
         color: #a0aec0;
-        background-color: #1a202c;
         border-bottom: 1px solid #a0aec0;
         margin-right: 30px;
     }
 
     &__add-button {
         background-color: #a0aec0;
-        border-radius: 14px;
+        border-radius: 10px;
         min-width: 30px;
         min-height: 30px;
         width: 4%;
@@ -86,12 +99,13 @@ import Column from "./Column.vue";
     }
 
     &__columns {
+        margin-left: 10px;
         border-right: 2px solid #718096;
         border-bottom-left-radius: 20px;
         overflow-x: auto;
         width: 100%;
         height: ((812.59px - 76.91px) / 812.59px) * 100%;
-        background: #1a202c;
+        @include background-color;
         @include centering-block-row;
         justify-content: normal;
     }
@@ -138,4 +152,30 @@ import Column from "./Column.vue";
     }
 }
 
+.new-column {
+
+    &__name {
+        @include font-stack;
+    }
+
+    &__name-area {
+        @include input-stack;
+        background-color: #718096;
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    &__color {
+        @include selector;
+    }
+
+    &__name-area:focus {
+        outline: none;
+    }
+
+    &__name-area:focus:hover {
+        outline: none;
+    }
+
+}
 </style>
