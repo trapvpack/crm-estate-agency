@@ -16,13 +16,13 @@
 @import "/resources/scss/mixins.scss";
 
 .navbar {
+    box-shadow: 0 0 25px rgb(200, 200, 200, 0.13);
     margin: 15px 15px 15px 15px;
     height: 6vh;
     @include background-color;
     min-width: 865px;
     @include centering-block-row;
-    border: 3px solid #34343a;
-    border-radius: 10px;
+    border-radius: 5px;
 
     &__button {
         margin: 0 5px 0 0;

@@ -29,6 +29,7 @@ let overlayVisibility = ref<boolean>(false);
                 <Column></Column>
                 <Column></Column>
                 <Column></Column>
+
             </div>
         </div>
         <div class="board__closed-tasks">
@@ -42,21 +43,21 @@ let overlayVisibility = ref<boolean>(false);
 @import "/resources/scss/mixins.scss";
 
 .board {
-    margin: 0;
+    box-shadow: 0 0 35px rgb(175, 175, 175, 0.13);
     @include background-color;
     height: 85vh;
     width: 80%;
     min-width: 600px;
-    border: 3px solid #34343a;
-    border-radius: 10px;
+    border-radius: 5px;
     @include centering-block-row;
     justify-content: left;
 
     &__collection {
+        margin-left: 10px;
         border-radius: 10px;
         @include background-color;
         height: 85vh;
-        width: 80%;
+        width: 90%;
     }
 
     &__navbar {
@@ -66,9 +67,10 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__name {
+        margin-left: 10px;
         @include font-stack;
         font-size: xx-large;
-        color: #a0aec0;
+        color: #cbd5e0;
         min-width: 150px;
         width: 15%;
         text-align: center;
@@ -81,26 +83,27 @@ let overlayVisibility = ref<boolean>(false);
         width: 90%;
         @include font-stack;
         @include background-color;
-        color: #a0aec0;
-        border-bottom: 1px solid #a0aec0;
-        margin-right: 30px;
+        color: #cbd5e0;
+        border-bottom: 1px solid #cbd5e0;
+        margin-right: 10px;
     }
 
     &__add-button {
-        background-color: #a0aec0;
+        box-shadow: 0 0 5px rgb(255, 255, 255, 0.1);
+        background-color: #34343a;
         border-radius: 10px;
-        min-width: 30px;
+        min-width: 45px;
         min-height: 30px;
         width: 4%;
         height: 62%;
-        border: none;
         @include font-stack;
+        border: none;
+        color: white;
         text-align: center;
     }
 
     &__columns {
-        margin-left: 10px;
-        border-right: 2px solid #718096;
+        border-right: 1px solid #ffffff;
         border-bottom-left-radius: 20px;
         overflow-x: auto;
         width: 100%;
@@ -108,16 +111,6 @@ let overlayVisibility = ref<boolean>(false);
         @include background-color;
         @include centering-block-row;
         justify-content: normal;
-    }
-
-    &__columns::-webkit-scrollbar {
-        border-radius: 20px;
-        background-color: #1a202c;
-    }
-
-    &__columns::-webkit-scrollbar-thumb {
-        border-radius: 20px;
-        background-color: #718096;
     }
 
     &__closed-tasks {
@@ -128,8 +121,22 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__show-button {
+        box-shadow: 0 0 10px rgb(255, 255, 255, 0.1);
+        margin-left: 5px;
         @include button;
+        color: white;
     }
+
+    &__columns::-webkit-scrollbar {
+        border-radius: 20px;
+        @include background-color;
+    }
+
+    &__columns::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: #34343a;
+    }
+
 
     &__search::-webkit-search-cancel-button {
         @include input-search-closer;
@@ -144,10 +151,12 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__add-button:hover {
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
         @include btn-hover-style;
     }
 
     &__show-button:hover {
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
         @include btn-hover-style;
     }
 }
@@ -156,11 +165,12 @@ let overlayVisibility = ref<boolean>(false);
 
     &__name {
         @include font-stack;
+        color: white;
     }
 
     &__name-area {
         @include input-stack;
-        background-color: #718096;
+        @include background-color;
         width: 80%;
         margin-top: 20px;
     }

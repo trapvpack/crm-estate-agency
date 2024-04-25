@@ -1,6 +1,7 @@
 @mixin font-stack {
     font-family: "Unbounded", sans-serif;
     font-size: medium;
+
 }
 
 @mixin background-color {
@@ -26,8 +27,9 @@
     height: 30px;
     width: 100%;
     @include font-stack;
-    background: #a0aec0;
-    border-bottom: 3px solid #1a202c;
+    color: white;
+    @include background-color;
+    border-bottom: 1px solid white;
 }
 
 @mixin input-search-closer {
@@ -40,7 +42,7 @@
 }
 
 @mixin btn-hover-style {
-    border: 1px solid white;
+    background-color: #26262b;
     cursor: pointer;
 }
 
@@ -53,7 +55,7 @@
 
 @mixin button {
     margin-bottom: 20px;
-    background-color: #a0aec0;
+    background-color: #34343a;
     border-radius: 14px;
     border: none;
     height: 10%;
@@ -64,8 +66,8 @@
 @mixin selector {
     width: 30%;
     height: 40px;
-    background: #1a202c;
+    @include background-color;
     border-radius: 10px;
     @include font-stack;
-    color: #a0aec0;
+    color: white;
 }

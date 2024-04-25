@@ -28,13 +28,12 @@ let overlayVisibility = ref<boolean>(false);
 @import "/resources/scss/mixins.scss";
 
 .left-bar {
-    margin: 0;
+    box-shadow: 0 0 25px rgb(150, 150, 150, 0.13);
     @include background-color;
     height: 88vh;
     width: 20%;
     min-width: 250px;
-    border: 3px solid #34343a;
-    border-radius: 10px;
+    border-radius: 5px;
     @include centering-block-column;
 
     &__search {
@@ -89,23 +88,24 @@ let overlayVisibility = ref<boolean>(false);
 
     &__bar-elements::-webkit-scrollbar {
         border-radius: 20px;
-        background-color: #1a202c;
+        @include background-color;
     }
 
     &__bar-elements::-webkit-scrollbar-thumb {
         border-radius: 20px;
-        background-color: #718096;
+        background-color: #34343a;
     }
 }
 
 .new-board {
     &__name {
+        color: white;
         @include font-stack;
     }
 
     &__name-area {
         @include input-stack;
-        background-color: #718096;
+        @include background-color;
         width: 80%;
         margin-top: 20px;
     }

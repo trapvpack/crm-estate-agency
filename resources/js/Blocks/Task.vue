@@ -19,7 +19,7 @@
     margin-top: 20px;
     height: 80px;
     width: 90%;
-    background: #1a202c;
+    background: #34343a;
     border-radius: 15px;
     @include font-stack;
     color: #e2e8f0;
@@ -32,7 +32,6 @@
 
 .task:hover {
     cursor: pointer;
-    border: 1px solid #cbd5e0;
-    background-color: #1a253c;
+    background-color: #2f2d32;
 }
 </style>

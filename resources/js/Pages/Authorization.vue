@@ -26,6 +26,7 @@ import {Link} from "@inertiajs/vue3";
 @import "/resources/scss/mixins.scss";
 
 .auth-main {
+    box-shadow: 0 0 30px rgb(255, 255, 255, 0.1);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -34,23 +35,23 @@ import {Link} from "@inertiajs/vue3";
     min-height: 450px;
     width: 20%;
     min-width: 400px;
-    background: #a0aec0;
+    @include background-color;
     border-radius: 20px;
     @include centering-block-column;
 
     &__heading {
+        text-align: center;
         @include centering-block-column;
         margin-top: 20px;
         width: 95%;
         height: 50px;
         @include font-stack;
-        color: #a0aec0;
-        background: #1a202c;
+        color: white;
         border-radius: 18px;
     }
 
     &__login {
-        color: #1a202c;
+        color: white;
         width: 80%;
         @include font-stack;
         padding: 30px 0 0 0;
@@ -66,21 +67,20 @@ import {Link} from "@inertiajs/vue3";
     }
 
     &__btn {
+        box-shadow: 0 0 10px rgb(255, 255, 255, 0.1);
         margin-top: 30px;
         @include font-stack;
         width: 70%;
         height: 60px;
-        color: #a0aec0;
-        background: #1a202c;
-        border: #1a202c;
+        color: white;
+        @include button;
         border-radius: 18px;
     }
 
     &__btn:hover {
-        border: 2px solid #1a254c;
-        background: #1a253c;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+        @include btn-hover-style;
         cursor: pointer;
-        color: #e2e8f0;
     }
 
     &__login-input:focus {

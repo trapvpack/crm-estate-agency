@@ -12,7 +12,7 @@ let overlayVisibility = ref<boolean>(false);
         <span class="new-task__name">Название задачи</span>
         <input class="new-task__name-area">
         <span class="new-task__description">Описание задачи</span>
-        <input class="new-task__description-area">
+        <textarea class="new-task__description-area"></textarea>
         <select class="new-task__choose-deal">
             <option disabled value="">Выберите сделку</option>
         </select>
@@ -35,9 +35,9 @@ let overlayVisibility = ref<boolean>(false);
 .column {
     min-width: 260px;
     margin: 0 5px 0 5px;
-    width: 25%;
+    width: 23%;
     height: 98%;
-    background: #718096;
+    background: #1b1b1e;
     border-radius: 20px;
     @include centering-block-column;
     justify-content: normal;
@@ -45,6 +45,7 @@ let overlayVisibility = ref<boolean>(false);
     &__name {
         margin-top: 20px;
         @include font-stack;
+        color: #cbd5e0;
     }
 
     &__task-stash {
@@ -58,11 +59,14 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__new-task-button {
+        color: #cbd5e0;
         @include button;
         height: 5%;
+        box-shadow: 0 0 7px rgb(255, 255, 255, 0.1);
     }
 
     &__new-task-button:hover {
+        box-shadow: 0 0 7px rgb(0, 0, 0, 0.1);
         @include btn-hover-style;
     }
 }
@@ -70,32 +74,59 @@ let overlayVisibility = ref<boolean>(false);
 .new-task {
     &__name {
         @include font-stack;
+        color: white;
     }
 
     &__name-area {
         @include input-stack;
-        background-color: #718096;
+        @include background-color;
         width: 80%;
         margin-top: 20px;
     }
 
     &__description {
+        margin-top: 10px;
         @include font-stack;
+        color: white;
     }
 
     &__description-area {
         @include input-stack;
-        background-color: #718096;
+        @include background-color;
         width: 80%;
+        height: 80px;
         margin-top: 20px;
+        resize: none;
     }
 
     &__choose-deal {
         @include selector;
+        margin-top: 10px;
     }
 
     &__choose-request {
+        margin-top: 10px;
         @include selector;
+    }
+
+    &__description-area::-webkit-scrollbar-thumb {
+        @include background-color;
+    }
+
+    &__name-area:focus {
+        outline: none;
+    }
+
+    &__name-area:focus:hover {
+        outline: none;
+    }
+
+    &__description-area:focus {
+        outline: none;
+    }
+
+    &__description-area:focus:hover {
+        outline: none;
     }
 }
 

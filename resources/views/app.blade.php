@@ -10,7 +10,7 @@
     @vite('resources/css/normalize.css')
     @inertiaHead
 </head>
-<body style="background: #4a5568;">
+<body style="background: #101012;">
 @inertia
 </body>
 </html>
