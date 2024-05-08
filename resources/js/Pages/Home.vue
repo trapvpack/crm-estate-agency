@@ -2,8 +2,6 @@
 import LeftBar from "../Blocks/LeftBar.vue";
 import NavBar from '../Blocks/NavBar.vue';
 import Board from "../Blocks/Board.vue";
-import Overlay from "../Layouts/ModalWindow.vue";
-import {ref} from "vue";
 
 </script>
 

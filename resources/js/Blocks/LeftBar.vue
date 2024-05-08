@@ -62,6 +62,7 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__bar-element-new {
+        transition: background-color 0.4s;
         @include bar-element;
         background-color: #232329;
         color: #cbd5e0;

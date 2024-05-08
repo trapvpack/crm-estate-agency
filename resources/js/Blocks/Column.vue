@@ -33,6 +33,7 @@ let overlayVisibility = ref<boolean>(false);
 @import "/resources/scss/mixins.scss";
 
 .column {
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.6);
     min-width: 260px;
     margin: 0 5px 0 5px;
     width: 23%;
@@ -59,6 +60,7 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__new-task-button {
+        transition: background-color 0.3s;
         color: #cbd5e0;
         @include button;
         height: 5%;
@@ -109,8 +111,18 @@ let overlayVisibility = ref<boolean>(false);
         @include selector;
     }
 
-    &__description-area::-webkit-scrollbar-thumb {
+    &__description-area::-webkit-scrollbar {
+        border-radius: 20px;
         @include background-color;
+    }
+
+    &__description-area::-webkit-scrollbar-thumb {
+        border-radius: 20px;
+        background-color: #34343a;
+    }
+
+    &__description-area::-webkit-search-cancel-button {
+        @include input-search-closer;
     }
 
     &__name-area:focus {

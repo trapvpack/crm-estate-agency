@@ -9,6 +9,7 @@ let overlayVisibility = ref<boolean>(false);
 
 <template>
     <ModalWindow class="new-column" v-if="overlayVisibility" @closeButtonIsClicked="overlayVisibility = false">
+
         <span class="new-column__name">Название колонки</span>
         <input type="text" class="new-column__name-area">
         <select class="new-column__color">
@@ -18,6 +19,7 @@ let overlayVisibility = ref<boolean>(false);
             <option value="green">Зелёный</option>
         </select>
     </ModalWindow>
+
     <div class="board">
         <div class="board__collection">
             <nav class="board__navbar">
@@ -29,7 +31,6 @@ let overlayVisibility = ref<boolean>(false);
                 <Column></Column>
                 <Column></Column>
                 <Column></Column>
-
             </div>
         </div>
         <div class="board__closed-tasks">
@@ -89,6 +90,7 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__add-button {
+        transition: background-color 0.3s;
         box-shadow: 0 0 5px rgb(255, 255, 255, 0.1);
         background-color: #34343a;
         border-radius: 10px;
@@ -121,6 +123,7 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__show-button {
+        transition: background-color 0.3s;
         box-shadow: 0 0 10px rgb(255, 255, 255, 0.1);
         margin-left: 5px;
         @include button;

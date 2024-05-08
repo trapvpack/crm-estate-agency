@@ -10,6 +10,7 @@
 @import "/resources/scss/mixins.scss";
 
 .bar-element {
+    transition: background-color 0.4s;
     @include bar-element;
     @include background-color;
     color: #cbd5e0;

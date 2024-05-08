@@ -25,7 +25,7 @@
     border-radius: 5px;
 
     &__button {
-        margin: 0 5px 0 0;
+        transition: background-color 0.3s;
         height: 100%;
         @include background-color;
         color: #cbd5e0;
