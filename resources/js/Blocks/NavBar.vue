@@ -4,11 +4,16 @@
 
 <template>
     <nav class="navbar">
-        <button class="navbar__button">Доски и задачи</button>
+        <a href="http://127.0.0.1:8000/home" class="navbar__button">
+            <button class="navbar__button">Доски и задачи</button>
+        </a>
         <button class="navbar__button">Сделки</button>
         <button class="navbar__button">Заявки</button>
         <button class="navbar__button">Недвижимость</button>
-        <button class="navbar__button">Клиенты</button>
+        <a href="http://127.0.0.1:8000/clients" class="navbar__button">
+            <button class="navbar__button">Клиенты</button>
+        </a>
+
     </nav>
 </template>
 

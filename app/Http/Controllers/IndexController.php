@@ -21,4 +21,11 @@ class IndexController extends Controller
             'title' => 'Home'
         ]);
     }
+
+    public function clients(): \Inertia\Response
+    {
+        return Inertia::render('Clients', [
+            'title' => 'Clients'
+        ]);
+    }
 }

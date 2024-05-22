@@ -1,7 +1,9 @@
 <script setup lang="ts">
 
 const props = defineProps({
-    buttonsVisibility: Boolean
+    buttonsVisibility: Boolean,
+    editButtonsVisibility: Boolean,
+    previousTasksVisibility: Boolean
 });
 
 </script>
@@ -9,16 +11,24 @@ const props = defineProps({
 <template>
     <div class="overlay">
         <form class="modal"
-              :style="{ width: props.buttonsVisibility ? '35%' : '30%', height: props.buttonsVisibility ? '50%' : '40%'}">
+              method="dialog"
+              :style="{ width: props.buttonsVisibility || props.editButtonsVisibility || props.previousTasksVisibility ? '35%' : '30%', height: props.buttonsVisibility || props.editButtonsVisibility || props.previousTasksVisibility ? '50%' : '40%'}">
             <button class="modal__close" @click="$emit('closeButtonIsClicked')">
                 <img src="/resources/assets/SvgElements/CloseButton.svg" alt="">
             </button>
             <slot>
             </slot>
-            <div class="modal__button-container">
-                <button v-if="!props.buttonsVisibility" class="modal__submit">Создать</button>
-                <button v-if="props.buttonsVisibility" class="modal__close-task">Закрыть задачу</button>
-                <button v-if="props.buttonsVisibility" class="modal__edit-task">Редактировать задачу</button>
+            <div class="modal__button-container" v-if="!previousTasksVisibility">
+                <button
+                    v-if="!props.buttonsVisibility && !props.editButtonsVisibility && !props.previousTasksVisibility"
+                    class="modal__submit">Создать
+                </button>
+                <button v-if="props.buttonsVisibility" class="modal__close-task">Завершить задачу</button>
+                <button v-if="props.buttonsVisibility" class="modal__edit-task" @click="$emit('editButtonIsClicked')">
+                    Редактировать задачу
+                </button>
+                <button v-if="props.editButtonsVisibility" class="modal__save-task">Сохранить</button>
+                <button v-if="props.editButtonsVisibility" class="modal__delete-task">Удалить</button>
             </div>
         </form>
     </div>
@@ -38,7 +48,7 @@ const props = defineProps({
     box-shadow: 0 0 40px rgb(150, 150, 150, 0.1);
     width: 30%;
     height: 40%;
-    min-width: 450px;
+    min-width: 550px;
     min-height: 200px;
     border-radius: 15px;
     @include background-color;
@@ -46,10 +56,11 @@ const props = defineProps({
     justify-content: space-between;
 
     &__button-container {
-        min-width: 100%;
+        width: 100%;
+        min-width: 350px;
         min-height: 20%;
         @include centering-block-row;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     &__close {
@@ -68,8 +79,8 @@ const props = defineProps({
         margin-top: 10px;
         align-self: center;
         @include button;
-        height: 50px;
-        width: 200px;
+        height: 65%;
+        width: 35%;
     }
 
     &__close-task {
@@ -77,12 +88,12 @@ const props = defineProps({
         box-shadow: 0 0 7px rgb(255, 255, 255, 0.1);
         cursor: pointer;
         margin-top: 30px;
-        margin-left: 10px;
-        align-self: flex-start;
+        margin-right: 80px;
         @include button;
         background-color: green;
-        height: 40px;
-        width: 180px;
+        height: 45%;
+        width: 30%;
+        min-width: 180px;
     }
 
     &__edit-task {
@@ -90,12 +101,38 @@ const props = defineProps({
         box-shadow: 0 0 7px rgb(255, 255, 255, 0.1);
         cursor: pointer;
         margin-top: 30px;
-        margin-right: 10px;
-        align-self: flex-end;
+        margin-left: 80px;
         @include button;
         background-color: orangered;
-        height: 40px;
-        width: 180px;
+        height: 45%;
+        width: 30%;
+        min-width: 180px;
+    }
+
+    &__save-task {
+        color: white;
+        box-shadow: 0 0 7px rgb(255, 255, 255, 0.1);
+        cursor: pointer;
+        margin-top: 30px;
+        margin-right: 80px;
+        @include button;
+        background-color: green;
+        height: 45%;
+        width: 30%;
+        min-width: 180px;
+    }
+
+    &__delete-task {
+        color: white;
+        box-shadow: 0 0 7px rgb(255, 255, 255, 0.1);
+        cursor: pointer;
+        margin-top: 30px;
+        margin-left: 80px;
+        @include button;
+        background-color: red;
+        height: 45%;
+        width: 30%;
+        min-width: 180px;
     }
 
     &__submit:hover {
@@ -110,6 +147,18 @@ const props = defineProps({
     }
 
     &__edit-task:hover {
+        box-shadow: 0 0 7px rgb(0, 0, 0, 0.1);
+        @include btn-hover-style;
+        background-color: #402117;
+    }
+
+    &__save-task:hover {
+        box-shadow: 0 0 7px rgb(0, 0, 0, 0.1);
+        @include btn-hover-style;
+        background-color: #1b321b;
+    }
+
+    &__delete-task:hover {
         box-shadow: 0 0 7px rgb(0, 0, 0, 0.1);
         @include btn-hover-style;
         background-color: #402117;

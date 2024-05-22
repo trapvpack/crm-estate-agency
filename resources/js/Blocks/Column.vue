@@ -19,6 +19,7 @@ let overlayVisibility = ref<boolean>(false);
         <select class="new-task__choose-request">
             <option disabled value="">Выберите заявку</option>
         </select>
+        <input class="new-task__deadline-time" type="date" value="2024-05-16">
     </ModalWindow>
     <div class="column">
         <span class="column__name">Название</span>
@@ -109,6 +110,14 @@ let overlayVisibility = ref<boolean>(false);
     &__choose-request {
         margin-top: 10px;
         @include selector;
+    }
+
+    &__deadline-time {
+        margin-top: 20px;
+        border-radius: 5px;
+        border: 1px solid white;
+        color: white;
+        @include background-color;
     }
 
     &__description-area::-webkit-scrollbar {
