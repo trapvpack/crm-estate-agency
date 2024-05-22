@@ -6,65 +6,55 @@ import {ref} from "vue";
 let addOverlayVisibility = ref<boolean>(false);
 let editOverlayVisibility = ref<boolean>(false);
 
-const clients = ref([
+const deals = ref([
     {
         id: 1,
-        fullName: "Иван Иванов",
-        phone: "+7 (123) 456-7890",
-        email: "ivan@example.com",
+        agent: "Агент 1",
+        client: "Клиент 1",
         request: "Заявка 1",
-        deal: "Сделка 1",
-        status: "Активный"
+        property: "Недвижимость 1"
     },
     {
         id: 2,
-        fullName: "Петр Петров",
-        phone: "+7 (234) 567-8901",
-        email: "petr@example.com",
+        agent: "Агент 2",
+        client: "Клиент 2",
         request: "Заявка 2",
-        deal: "Сделка 2",
-        status: "Активный"
+        property: "Недвижимость 2"
     },
-    // Add other clients as needed
+    // Add other deals as needed
 ]);
 
-const deleteClient = (index: number) => {
-};
 </script>
 
 <template>
     <ModalWindow v-if="addOverlayVisibility" @closeButtonIsClicked="addOverlayVisibility = false">
-
+        <!-- Add deal form content -->
     </ModalWindow>
     <ModalWindow v-if="editOverlayVisibility" @closeButtonIsClicked="editOverlayVisibility = false">
-
+        <!-- Edit deal form content -->
     </ModalWindow>
     <NavBar></NavBar>
-    <div class="clients">
-        <button @click="addOverlayVisibility = true">Добавить клиента</button>
+    <div class="deals">
+        <button @click="addOverlayVisibility = true">Добавить сделку</button>
         <table>
             <thead>
             <tr>
-                <th>ФИО</th>
-                <th>Телефон</th>
-                <th>Email</th>
+                <th>Агент</th>
+                <th>Клиент</th>
                 <th>Заявка</th>
-                <th>Сделка</th>
-                <th>Статус</th>
+                <th>Недвижимость</th>
                 <th>Действия</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(client, index) in clients" :key="client.id">
-                <td>{{ client.fullName }}</td>
-                <td>{{ client.phone }}</td>
-                <td>{{ client.email }}</td>
-                <td>{{ client.request }}</td>
-                <td>{{ client.deal }}</td>
-                <td>{{ client.status }}</td>
+            <tr v-for="(deal, index) in deals" :key="deal.id">
+                <td>{{ deal.agent }}</td>
+                <td>{{ deal.client }}</td>
+                <td>{{ deal.request }}</td>
+                <td>{{ deal.property }}</td>
                 <td>
                     <button @click="editOverlayVisibility = true">Редактировать</button>
-                    <button @click="deleteClient(index)">Удалить</button>
+                    <button @click="deleteDeal(index)">Удалить</button>
                 </td>
             </tr>
             </tbody>
@@ -75,7 +65,7 @@ const deleteClient = (index: number) => {
 <style scoped lang="scss">
 @import "/resources/scss/mixins.scss";
 
-.clients {
+.deals {
     @include font-stack;
     box-shadow: 0 0 25px rgba(200, 200, 200, 0.13);
     margin: 15px;

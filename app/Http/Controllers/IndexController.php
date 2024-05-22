@@ -28,4 +28,25 @@ class IndexController extends Controller
             'title' => 'Clients'
         ]);
     }
+
+    public function estate(): \Inertia\Response
+    {
+        return Inertia::render('Estate', [
+            'title' => 'Estate'
+        ]);
+    }
+
+    public function deals(): \Inertia\Response
+    {
+        return Inertia::render('Deals', [
+            'title' => 'Deals'
+        ]);
+    }
+
+    public function applications(): \Inertia\Response
+    {
+        return Inertia::render('Applications', [
+            'title' => 'Applications'
+        ]);
+    }
 }

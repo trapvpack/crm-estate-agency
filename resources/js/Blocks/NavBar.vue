@@ -1,16 +1,26 @@
 <script setup lang="ts">
 
+
 </script>
 
 <template>
     <nav class="navbar">
-        <a href="http://127.0.0.1:8000/home" class="navbar__button">
+        <a href="/home" class="navbar__button">
             <button class="navbar__button">Доски и задачи</button>
         </a>
-        <button class="navbar__button">Сделки</button>
-        <button class="navbar__button">Заявки</button>
-        <button class="navbar__button">Недвижимость</button>
-        <a href="http://127.0.0.1:8000/clients" class="navbar__button">
+        <a class="navbar__button" href="/estate">
+            <button class="navbar__button">Недвижимость</button>
+        </a>
+        <a class="navbar__button" href="/deals">
+            <button class="navbar__button">Сделки</button>
+        </a>
+
+        <a class="navbar__button" href="/applications">
+            <button class="navbar__button">Заявки</button>
+        </a>
+
+
+        <a href="/clients" class="navbar__button">
             <button class="navbar__button">Клиенты</button>
         </a>
 
