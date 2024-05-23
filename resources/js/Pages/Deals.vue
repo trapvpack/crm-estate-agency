@@ -54,7 +54,7 @@ const deals = ref([
                 <td>{{ deal.property }}</td>
                 <td>
                     <button @click="editOverlayVisibility = true">Редактировать</button>
-                    <button @click="deleteDeal(index)">Удалить</button>
+                    <button>Удалить</button>
                 </td>
             </tr>
             </tbody>
