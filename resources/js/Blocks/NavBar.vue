@@ -18,12 +18,10 @@
         <a class="navbar__button" href="/applications">
             <button class="navbar__button">Заявки</button>
         </a>
-
-
         <a href="/clients" class="navbar__button">
             <button class="navbar__button">Клиенты</button>
         </a>
-
+        <button class="navbar__button-quit">Выйти</button>
     </nav>
 </template>
 
@@ -46,6 +44,20 @@
         color: #cbd5e0;
         border: none;
         @include font-stack;
+    }
+
+    &__button-quit {
+        transition: background-color 0.3s;
+        height: 100%;
+        background-color: #3a1616;
+        color: #cbd5e0;
+        border: none;
+        @include font-stack;
+    }
+
+    &__button-quit:hover {
+        cursor: pointer;
+        background-color: #632626;
     }
 
     &__button:hover {

@@ -48,11 +48,13 @@ let previousTasksVisibility = ref<boolean>(false);
         </div>
         <div class="modal-task__body">
             <textarea class="modal-task__body-description" style="background-color: #101012; border: 1px solid white;">Описание задачи</textarea>
+            <label>Выберите сделку</label>
             <select class="modal-task__body-deal"
                     style="width: 30%; height: 40px; border-radius: 10px; border: white; color: white;">
                 <option>Сделка1</option>
                 <option>Сделка2</option>
             </select>
+            <label>Выберите заявку</label>
             <select class="modal-task__body-deal"
                     style="width: 30%; height: 40px; border-radius: 10px; border: white; color: white; margin-bottom: 10px">
                 <option>Заявка1</option>
@@ -90,6 +92,7 @@ let previousTasksVisibility = ref<boolean>(false);
 .modal-task {
     @include centering-block-column;
     @include font-stack;
+    color: white;
 
     &__header {
         color: white;

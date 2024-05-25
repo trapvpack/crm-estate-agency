@@ -33,11 +33,59 @@ const deleteClient = (index: number) => {
 </script>
 
 <template>
-    <ModalWindow v-if="addOverlayVisibility" @closeButtonIsClicked="addOverlayVisibility = false">
-
+    <ModalWindow v-if="addOverlayVisibility" @closeButtonIsClicked="addOverlayVisibility = false"
+                 :addOverlayVisibility="addOverlayVisibility">
+        <label class="modal-estate__label">ФИО</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Телефон</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Email</label>
+        <input class="modal-estate__input" type="email">
+        <label class="modal-estate__label">Заявка</label>
+        <select class="modal-estate__selector">
+            <option>Заявка1</option>
+            <option>Заявка2</option>
+            <option>Заявка3</option>
+        </select>
+        <label class="modal-estate__label">Сделка</label>
+        <select class="modal-estate__selector">
+            <option>Сделка1</option>
+            <option>Сделка2</option>
+            <option>Сделка3</option>
+        </select>
+        <label class="modal-estate__label">Статус</label>
+        <select class="modal-estate__selector">
+            <option>Статус1</option>
+            <option>Статус2</option>
+            <option>Статус3</option>
+        </select>
     </ModalWindow>
-    <ModalWindow v-if="editOverlayVisibility" @closeButtonIsClicked="editOverlayVisibility = false">
-
+    <ModalWindow v-if="editOverlayVisibility" @closeButtonIsClicked="editOverlayVisibility = false"
+                 :editOverlayVisibility="editOverlayVisibility">
+        <label class="modal-estate__label">ФИО</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Телефон</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Email</label>
+        <input class="modal-estate__input" type="email">
+        <label class="modal-estate__label">Заявка</label>
+        <select class="modal-estate__selector">
+            <option>Заявка1</option>
+            <option>Заявка2</option>
+            <option>Заявка3</option>
+        </select>
+        <label class="modal-estate__label">Сделка</label>
+        <select class="modal-estate__selector">
+            <option>Сделка1</option>
+            <option>Сделка2</option>
+            <option>Сделка3</option>
+        </select>
+        <label class="modal-estate__label">Статус</label>
+        <select class="modal-estate__selector">
+            <option>Статус1</option>
+            <option>Статус2</option>
+            <option>Статус3</option>
+        </select>
     </ModalWindow>
     <NavBar></NavBar>
     <div class="clients">
@@ -74,6 +122,34 @@ const deleteClient = (index: number) => {
 
 <style scoped lang="scss">
 @import "/resources/scss/mixins.scss";
+
+.modal-estate {
+    &__input {
+        @include input-stack;
+        @include background-color;
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    &__label {
+        color: white;
+        @include font-stack;
+    }
+
+    &__selector {
+        @include selector;
+        margin-top: 10px;
+    }
+
+    &__description {
+        @include input-stack;
+        @include background-color;
+        width: 80%;
+        height: 80px;
+        margin-top: 20px;
+        resize: none;
+    }
+}
 
 .clients {
     @include font-stack;

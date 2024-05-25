@@ -35,11 +35,57 @@ const properties = ref([
 </script>
 
 <template>
-    <ModalWindow v-if="addOverlayVisibility" @closeButtonIsClicked="addOverlayVisibility = false">
-        <!-- Add property form content -->
+    <ModalWindow class="modal-estate" v-if="addOverlayVisibility" @closeButtonIsClicked="addOverlayVisibility = false"
+                 :addOverlayVisibility=addOverlayVisibility>
+        <label class="modal-estate__label">Стоимость</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Тип</label>
+        <select class="modal-estate__selector">
+            <option>Квартира</option>
+            <option>Дом</option>
+            <option>Гараж</option>
+        </select>
+        <label class="modal-estate__label">Площадь</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Адрес</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Описание</label>
+        <textarea class="modal-estate__description"></textarea>
+        <label class="modal-estate__label">Кол-во комнат</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Новостройка</label>
+        <select class="modal-estate__selector">
+            <option>Да</option>
+            <option>Нет</option>
+        </select>
+        <label class="modal-estate__label">Продавец</label>
+        <input class="modal-estate__input" type="text">
     </ModalWindow>
-    <ModalWindow v-if="editOverlayVisibility" @closeButtonIsClicked="editOverlayVisibility = false">
-        <!-- Edit property form content -->
+    <ModalWindow v-if="editOverlayVisibility" @closeButtonIsClicked="editOverlayVisibility = false"
+                 :editOverlayVisibility=editOverlayVisibility>
+        <label class="modal-estate__label">Стоимость</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Тип</label>
+        <select class="modal-estate__selector">
+            <option>Квартира</option>
+            <option>Дом</option>
+            <option>Гараж</option>
+        </select>
+        <label class="modal-estate__label">Площадь</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Адрес</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Описание</label>
+        <textarea class="modal-estate__description"></textarea>
+        <label class="modal-estate__label">Кол-во комнат</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Новостройка</label>
+        <select class="modal-estate__selector">
+            <option>Да</option>
+            <option>Нет</option>
+        </select>
+        <label class="modal-estate__label">Продавец</label>
+        <input class="modal-estate__input" type="text">
     </ModalWindow>
     <NavBar></NavBar>
     <div class="properties">
@@ -47,6 +93,7 @@ const properties = ref([
         <table>
             <thead>
             <tr>
+                <th>Фото</th>
                 <th>Цена</th>
                 <th>Площадь</th>
                 <th>Тип</th>
@@ -59,7 +106,8 @@ const properties = ref([
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(property, index) in properties" :key="property.id">
+            <tr v-for="(property) in properties" :key="property.id">
+                <td><img src="."></td>
                 <td>{{ property.price }}</td>
                 <td>{{ property.area }}</td>
                 <td>{{ property.type }}</td>
@@ -80,6 +128,34 @@ const properties = ref([
 
 <style scoped lang="scss">
 @import "/resources/scss/mixins.scss";
+
+.modal-estate {
+    &__input {
+        @include input-stack;
+        @include background-color;
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    &__label {
+        color: white;
+        @include font-stack;
+    }
+
+    &__selector {
+        @include selector;
+        margin-top: 10px;
+    }
+
+    &__description {
+        @include input-stack;
+        @include background-color;
+        width: 80%;
+        height: 80px;
+        margin-top: 20px;
+        resize: none;
+    }
+}
 
 .properties {
     @include font-stack;

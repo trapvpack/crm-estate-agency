@@ -32,18 +32,63 @@ const requests = ref([
             rooms: 4,
             newBuilding: false
         }
-    },
-    // Add other requests as needed
+    }
 ]);
 
 </script>
 
 <template>
-    <ModalWindow v-if="addOverlayVisibility" @closeButtonIsClicked="addOverlayVisibility = false">
-        <!-- Add request form content -->
+    <ModalWindow v-if="addOverlayVisibility" @closeButtonIsClicked="addOverlayVisibility = false"
+                 :addOverlayVisibility="addOverlayVisibility">
+        <label class="modal-estate__label">Клиент</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Описание</label>
+        <textarea class="modal-estate__description"></textarea>
+        <label class="modal-estate__label">Стоимость</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Площадь</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Тип</label>
+        <select class="modal-estate__selector">
+            <option>Квартира</option>
+            <option>Дом</option>
+            <option>Гараж</option>
+        </select>
+        <label class="modal-estate__label">Адрес</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Кол-во комнат</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Новостройка</label>
+        <select class="modal-estate__selector">
+            <option>Да</option>
+            <option>Нет</option>
+        </select>
     </ModalWindow>
-    <ModalWindow v-if="editOverlayVisibility" @closeButtonIsClicked="editOverlayVisibility = false">
-        <!-- Edit request form content -->
+    <ModalWindow v-if="editOverlayVisibility" @closeButtonIsClicked="editOverlayVisibility = false"
+                 :editOverlayVisibility="editOverlayVisibility">
+        <label class="modal-estate__label">Клиент</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Описание</label>
+        <textarea class="modal-estate__description"></textarea>
+        <label class="modal-estate__label">Стоимость</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Площадь</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Тип</label>
+        <select class="modal-estate__selector">
+            <option>Квартира</option>
+            <option>Дом</option>
+            <option>Гараж</option>
+        </select>
+        <label class="modal-estate__label">Адрес</label>
+        <input class="modal-estate__input" type="text">
+        <label class="modal-estate__label">Кол-во комнат</label>
+        <input class="modal-estate__input" type="number">
+        <label class="modal-estate__label">Новостройка</label>
+        <select class="modal-estate__selector">
+            <option>Да</option>
+            <option>Нет</option>
+        </select>
     </ModalWindow>
     <NavBar></NavBar>
     <div class="requests">
@@ -63,7 +108,7 @@ const requests = ref([
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(request, index) in requests" :key="request.id">
+            <tr v-for="request in requests" :key="request.id">
                 <td>{{ request.client }}</td>
                 <td>{{ request.description }}</td>
                 <td>{{ request.property.price }}</td>
@@ -84,6 +129,35 @@ const requests = ref([
 
 <style scoped lang="scss">
 @import "/resources/scss/mixins.scss";
+
+.modal-estate {
+    &__input {
+        @include input-stack;
+        @include background-color;
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    &__label {
+        color: white;
+        @include font-stack;
+    }
+
+    &__selector {
+        @include selector;
+        margin-top: 10px;
+    }
+
+    &__description {
+        @include input-stack;
+        @include background-color;
+        width: 80%;
+        height: 80px;
+        margin-top: 20px;
+        resize: none;
+    }
+}
+
 
 .requests {
     @include font-stack;

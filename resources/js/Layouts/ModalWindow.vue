@@ -3,7 +3,9 @@
 const props = defineProps({
     buttonsVisibility: Boolean,
     editButtonsVisibility: Boolean,
-    previousTasksVisibility: Boolean
+    previousTasksVisibility: Boolean,
+    addOverlayVisibility: Boolean,
+    editOverlayVisibility: Boolean
 });
 
 </script>
@@ -12,7 +14,8 @@ const props = defineProps({
     <div class="overlay">
         <form class="modal"
               method="dialog"
-              :style="{ width: props.buttonsVisibility || props.editButtonsVisibility || props.previousTasksVisibility ? '35%' : '30%', height: props.buttonsVisibility || props.editButtonsVisibility || props.previousTasksVisibility ? '50%' : '40%'}">
+              :style="{ width: props.buttonsVisibility || props.editButtonsVisibility || props.previousTasksVisibility || props.addOverlayVisibility || props.editOverlayVisibility ? '35%' : '30%',
+                        height: props.buttonsVisibility || props.editButtonsVisibility || props.previousTasksVisibility || props.addOverlayVisibility || props.editOverlayVisibility ? '80%' : '40%'}">
             <button class="modal__close" @click="$emit('closeButtonIsClicked')">
                 <img src="/resources/assets/SvgElements/CloseButton.svg" alt="">
             </button>

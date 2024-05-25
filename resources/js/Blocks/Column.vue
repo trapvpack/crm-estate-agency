@@ -113,6 +113,7 @@ let overlayVisibility = ref<boolean>(false);
     }
 
     &__deadline-time {
+        @include font-stack;
         margin-top: 20px;
         border-radius: 5px;
         border: 1px solid white;

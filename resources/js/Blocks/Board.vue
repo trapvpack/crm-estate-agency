@@ -9,7 +9,6 @@ let overlayVisibility = ref<boolean>(false);
 
 <template>
     <ModalWindow class="new-column" v-if="overlayVisibility" @closeButtonIsClicked="overlayVisibility = false">
-
         <span class="new-column__name">Название колонки</span>
         <input type="text" class="new-column__name-area">
         <select class="new-column__color">
